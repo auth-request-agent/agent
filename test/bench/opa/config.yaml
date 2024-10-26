@@ -1,0 +1,4 @@
+decision_logs:
+  console: true
+default_decision: /authz/allow
+persist: true

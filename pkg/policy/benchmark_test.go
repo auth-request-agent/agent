@@ -91,7 +91,7 @@ policies:
 
 	checker := NewChecker()
 	require.NoError(b, checker.SetPolicy([]byte(config)))
-	checker.SetData(data)
+	require.NoError(b, checker.SetData(data))
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {

@@ -1,0 +1,20 @@
+services:
+  opa:
+    image: opa-test:0.69.0
+    command:
+      - 'run'
+      - '--server'
+      - '--addr=:8181'
+      - '--log-level=info'
+      - '--config-file=/config.yaml'
+      - '--bundle'
+      - '/bundle.tar.gz'
+    ports:
+      - 8181:8181
+    volumes:
+      - type: bind
+        source: ./config.yaml
+        target: /config.yaml
+      - type: bind
+        source: ./bundle.tar.gz
+        target: /bundle.tar.gz

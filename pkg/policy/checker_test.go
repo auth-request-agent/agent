@@ -57,7 +57,7 @@ policies:
 	// from vars
 	checker := NewChecker()
 	require.NoError(t, checker.SetPolicy([]byte(config)))
-	checker.SetData(data)
+	require.NoError(t, checker.SetData(data))
 
 	result, err := checker.Check(CheckInput{
 		Uri:     "/endpoint1",

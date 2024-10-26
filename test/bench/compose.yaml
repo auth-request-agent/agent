@@ -1,0 +1,23 @@
+services:
+
+  arqagent:
+    image: ghcr.io/auth-request-agent/agent:local
+    command:
+      - 'run'
+      - '--addr=:8282'
+      - '--tls-disable'
+      - '--log-check-results'
+      - '/policy.yaml'
+      - '/data.json'
+    ports:
+      - 8282:8282
+    volumes:
+      - type: bind
+        source: ./policy.yaml
+        target: /policy.yaml
+      - type: bind
+        source: ./data.json
+        target: /data.json
+      - type: bind
+        source: ./jwt.key
+        target: /jwt.key
